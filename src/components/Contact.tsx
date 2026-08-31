@@ -6,7 +6,57 @@ import { GitHubIcon, LinkedInIcon } from "./icons";
 import { profile } from "@/data/profile";
 import { Reveal, Section } from "./ui";
 
-type Status = "idle" | "sending" | "sent" | "error";
+type Status = "idle" | "sending" | "sent" | "activate" | "error";
+
+type SubmitResult = {
+  ok?: boolean;
+  needsActivation?: boolean;
+};
+
+async function sendMessage(payload: {
+  name: string;
+  email: string;
+  message: string;
+  company: string;
+}): Promise<SubmitResult> {
+  const body = JSON.stringify({
+    ...payload,
+    _subject: `Portfolio message from ${payload.name}`,
+    _replyto: payload.email,
+    _template: "table",
+  });
+
+  const direct = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(profile.email)}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    body,
+  });
+  const directJson = (await direct.json().catch(() => null)) as {
+    success?: string | boolean;
+    message?: string;
+  } | null;
+
+  if (directJson && /activat/i.test(String(directJson.message ?? ""))) {
+    return { ok: true, needsActivation: true };
+  }
+
+  if (direct.ok && (directJson?.success === true || directJson?.success === "true")) {
+    return { ok: true };
+  }
+
+  const backup = await fetch("/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  const backupJson = (await backup.json().catch(() => null)) as SubmitResult | null;
+
+  if (backup.ok && backupJson?.ok) {
+    return backupJson;
+  }
+
+  throw new Error("Could not send");
+}
 
 const channels = [
   {
@@ -50,19 +100,16 @@ export function Contact() {
     const company = String(data.get("company") ?? "").trim();
     setStatus("sending");
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message, company }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Could not send");
-      }
-
+    if (company) {
       form.reset();
       setStatus("sent");
+      return;
+    }
+
+    try {
+      const result = await sendMessage({ name, email, message, company });
+      form.reset();
+      setStatus(result.needsActivation ? "activate" : "sent");
     } catch {
       window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(`Portfolio inquiry from ${name}`)}&body=${encodeURIComponent(`${message}\n\nFrom: ${email}`)}`;
       setStatus("error");
@@ -157,6 +204,13 @@ export function Contact() {
             >
               {status === "sending" ? "Sending…" : "Send message"}
             </button>
+            {status === "activate" ? (
+              <p className="mt-3 text-sm leading-6 text-teal">
+                FormSubmit emailed {profile.email} an <strong>Activate Form</strong> link. Open Gmail
+                (and Spam), click it, then send this form once more. After that, every message
+                arrives in the inbox.
+              </p>
+            ) : null}
             {status === "sent" ? (
               <p className="mt-3 text-sm text-teal">
                 Message sent to {profile.email}. I’ll get back to you.
