@@ -4,6 +4,8 @@ Personal brand site for **Abdul Samad Saleem**: business development, FinTech, a
 
 **Live positioning:** Business Development & Technology Professional building at the intersection of client growth, financial technology, and digital products.
 
+Repository: [AbdulSamadSaleem1208/Samad-Portfolio](https://github.com/AbdulSamadSaleem1208/Samad-Portfolio)
+
 ## Stack
 
 - Next.js 16 (App Router)
@@ -45,19 +47,11 @@ After the first test send, open that Gmail inbox (and Spam) and click FormSubmit
 ## Deploy on Vercel
 
 1. Create a free account at [vercel.com](https://vercel.com) and sign in with GitHub.
-2. Put this project on GitHub (new repo, then push):
-   ```bash
-   git add .
-   git commit -m "Launch portfolio site"
-   git branch -M main
-   git remote add origin https://github.com/AbdulSamadSaleem1208/YOUR-REPO-NAME.git
-   git push -u origin main
-   ```
-3. In Vercel: **Add New → Project → Import** that GitHub repo.
-4. Leave the defaults (Framework: Next.js, Build: `npm run build`, Output: default).
-5. Click **Deploy**. Wait until it finishes.
-6. Open the `*.vercel.app` URL Vercel gives you.
-7. Send one test message from Contact. Confirm the FormSubmit email in Gmail if this is the first send.
-8. Optional: in Vercel → Project → Settings → Domains, add a custom domain.
+2. In Vercel: **Add New → Project → Import** `AbdulSamadSaleem1208/Samad-Portfolio`.
+3. Leave the defaults (Framework: Next.js, Build: `npm run build`, Output: default).
+4. Click **Deploy**. Wait until it finishes.
+5. Open the `*.vercel.app` URL Vercel gives you.
+6. Send one test message from Contact. Confirm the FormSubmit email in Gmail if this is the first send.
+7. Optional: in Vercel → Project → Settings → Domains, add a custom domain.
 
 Later pushes to `main` redeploy automatically.
