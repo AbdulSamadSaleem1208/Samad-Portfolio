@@ -25,7 +25,7 @@ export function Skills() {
             key={item.id}
             type="button"
             onClick={() => setActive(item.id)}
-            className={`rounded-full border px-4 py-2 text-sm transition ${
+            className={`rounded-full border px-4 py-2 text-sm ${
               active === item.id ? "btn-primary border-transparent" : "btn-ghost border-line text-muted"
             }`}
           >
@@ -41,7 +41,7 @@ export function Skills() {
             {group.items.map((item) => (
               <span
                 key={item}
-                className="rounded-full border border-line px-3 py-1.5 text-sm text-muted transition hover:-translate-y-0.5 hover:border-violet hover:text-violet hover:shadow-[0_0_16px_rgba(139,124,255,0.25)]"
+                className="rounded-full border border-line px-3 py-1.5 text-sm text-muted transition hover:border-violet hover:text-violet"
               >
                 {item}
               </span>

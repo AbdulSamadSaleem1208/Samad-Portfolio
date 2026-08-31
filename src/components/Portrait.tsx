@@ -14,7 +14,7 @@ export function Portrait() {
     >
       <div className="float-y relative">
         <div className="spin-slow absolute -inset-1 rounded-full bg-[conic-gradient(from_120deg,var(--violet),var(--cyan),#6366f1,var(--violet))] opacity-90" />
-        <div className="absolute -inset-6 rounded-full bg-violet/20 blur-2xl transition duration-500 group-hover:bg-cyan/20" />
+        <div className="absolute -inset-6 rounded-full bg-violet/20 blur-2xl transition group-hover:bg-cyan/20" />
         <div className="group relative overflow-hidden rounded-full border border-white/10 bg-bg p-1.5 shadow-[0_20px_60px_-24px_rgba(91,77,255,0.65)]">
           <div className="relative aspect-square overflow-hidden rounded-full">
             <Image
@@ -23,7 +23,7 @@ export function Portrait() {
               fill
               priority
               sizes="320px"
-              className="object-cover object-[center_18%] transition duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
+              className="object-cover object-[center_18%]"
             />
           </div>
         </div>

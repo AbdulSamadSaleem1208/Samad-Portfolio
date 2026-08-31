@@ -16,12 +16,11 @@ export function Social() {
             href={profile.linkedin}
             target="_blank"
             rel="noreferrer"
-            data-cursor="Open"
             className="card lift group flex h-full flex-col justify-between rounded-3xl p-8"
           >
             <div className="flex items-center justify-between">
               <LinkedInIcon size={22} className="text-gold" />
-              <ArrowUpRight className="text-muted group-hover:text-gold" />
+              <ArrowUpRight className="text-muted transition group-hover:text-gold" />
             </div>
             <div className="mt-12">
               <p className="kicker">LinkedIn</p>
@@ -37,12 +36,11 @@ export function Social() {
             href={profile.github}
             target="_blank"
             rel="noreferrer"
-            data-cursor="Open"
             className="card lift group flex h-full flex-col justify-between rounded-3xl p-8"
           >
             <div className="flex items-center justify-between">
               <GitHubIcon size={22} className="text-teal" />
-              <ArrowUpRight className="text-muted group-hover:text-teal" />
+              <ArrowUpRight className="text-muted transition group-hover:text-teal" />
             </div>
             <div className="mt-12">
               <p className="kicker !text-teal">GitHub</p>

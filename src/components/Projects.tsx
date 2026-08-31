@@ -7,6 +7,12 @@ import { GitHubIcon } from "./icons";
 import { projectCategories, projects, type ProjectCategory } from "@/data/projects";
 import { Reveal, Section } from "./ui";
 
+function initials(title: string) {
+  const words = title.split(/\s+/).filter(Boolean);
+  if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
+  return `${words[0][0]}${words[1][0]}`.toUpperCase();
+}
+
 function Preview({ category, title }: { category: string; title: string }) {
   const tone =
     category === "fintech"
@@ -16,10 +22,12 @@ function Preview({ category, title }: { category: string; title: string }) {
         : "from-violet/15 via-ink/5 to-transparent";
 
   return (
-    <div className={`relative mb-5 overflow-hidden rounded-2xl border border-line bg-gradient-to-br ${tone} p-6`}>
+    <div
+      className={`relative mb-5 flex h-36 items-center justify-center overflow-hidden rounded-2xl border border-line bg-gradient-to-br ${tone} md:h-40`}
+    >
       <div className="absolute inset-0 grid-bg opacity-40" />
-      <p className="relative font-serif text-4xl text-ink/80 transition duration-500 group-hover:scale-105">
-        {title.slice(0, 2)}
+      <p className="relative font-serif text-5xl tracking-tight text-ink/80 transition group-hover:text-violet md:text-6xl">
+        {initials(title)}
       </p>
     </div>
   );
@@ -51,7 +59,7 @@ export function Projects() {
             key={cat.id}
             type="button"
             onClick={() => setFilter(cat.id)}
-            className={`rounded-full border px-4 py-2 text-sm transition ${
+            className={`rounded-full border px-4 py-2 text-sm ${
               filter === cat.id
                 ? "btn-primary border-transparent"
                 : "btn-ghost border-line text-muted"
@@ -70,7 +78,6 @@ export function Projects() {
             className={project.featured && filter === "all" && index === 0 ? "md:col-span-2" : ""}
           >
             <article
-              data-cursor="View"
               className={`card lift group h-full overflow-hidden rounded-3xl p-5 md:p-7 ${
                 project.featured ? "ring-1 ring-violet/25" : ""
               }`}
@@ -87,7 +94,7 @@ export function Projects() {
                         : "Web & Software"}
                   </p>
                   <ArrowUpRight
-                    className="text-muted transition group-hover:translate-x-1 group-hover:text-violet"
+                    className="text-muted transition group-hover:text-violet"
                     size={18}
                   />
                 </div>
@@ -118,7 +125,7 @@ export function Projects() {
                     href={project.live}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-ink px-3 py-1.5 text-xs text-bg transition hover:-translate-y-0.5"
+                    className="inline-flex items-center gap-2 rounded-full bg-ink px-3 py-1.5 text-xs text-bg hover:opacity-90"
                   >
                     Live Demo
                     <ArrowUpRight size={12} />

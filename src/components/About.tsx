@@ -46,7 +46,7 @@ export function About() {
                 ["FinTech", "Degree, banking operations, payments, onboarding, compliance-aware products.", "#fintech"],
               ].map(([title, body, href]) => (
                 <li key={title} className="border-b border-line pb-5 last:border-0 last:pb-0">
-                  <a href={href} className="block transition hover:text-violet">
+                  <a href={href} className="block hover:text-violet">
                     <p className="font-medium text-ink">{title}</p>
                     <p className="mt-1 text-sm leading-6 text-muted">{body}</p>
                   </a>

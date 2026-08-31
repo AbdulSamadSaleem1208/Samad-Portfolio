@@ -1,4 +1,3 @@
-import { ArrowUpRight } from "lucide-react";
 import { profile } from "@/data/profile";
 
 const facts = [
@@ -36,15 +35,16 @@ export function RecruiterStrip() {
             </p>
           </a>
         ))}
-        <div className="flex flex-col justify-between">
+        <div className="min-w-0">
           <p className="kicker">Contact</p>
-          <a
-            href={`mailto:${profile.email}`}
-            className="mt-2 inline-flex items-center gap-1 text-sm text-violet transition hover:gap-2"
-          >
-            {profile.email}
-            <ArrowUpRight size={14} />
-          </a>
+          <p className="mt-2 text-sm leading-6">
+            <a href={`mailto:${profile.email}`} className="block break-all text-violet hover:underline">
+              {profile.email}
+            </a>
+            <a href={profile.phoneHref} className="block text-violet hover:underline">
+              {profile.phoneDisplay}
+            </a>
+          </p>
         </div>
       </div>
     </section>

@@ -25,10 +25,10 @@ export function Education() {
               href={school.href}
               target="_blank"
               rel="noreferrer"
-              className="card lift block rounded-3xl p-6 md:p-8"
+              className="card lift group block rounded-3xl p-6 md:p-8"
             >
               <p className="text-xs font-medium text-gold">{school.dates}</p>
-              <h3 className="mt-3 text-2xl font-semibold tracking-tight text-ink">{school.name}</h3>
+              <h3 className="mt-3 text-2xl font-semibold tracking-tight text-ink transition group-hover:text-violet">{school.name}</h3>
               <p className="mt-2 text-sm text-muted">{school.credential}</p>
             </a>
           </Reveal>

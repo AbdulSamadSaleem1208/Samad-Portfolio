@@ -85,16 +85,16 @@ export function Contact() {
                 href={item.href}
                 target={item.external ? "_blank" : undefined}
                 rel={item.external ? "noreferrer" : undefined}
-                className="card contact-link"
+                className="card contact-link min-w-0"
               >
                 <span className="contact-icon">
                   <item.icon size={16} />
                 </span>
-                <span>
+                <span className="min-w-0">
                   <span className="block text-[11px] font-semibold tracking-[0.16em] text-muted uppercase">
                     {item.label}
                   </span>
-                  <span className="mt-1 block text-sm text-ink">{item.value}</span>
+                  <span className="mt-1 block break-all text-sm text-ink">{item.value}</span>
                 </span>
               </a>
             ))}
@@ -110,10 +110,14 @@ export function Contact() {
 
         <Reveal delay={0.08}>
           <form onSubmit={onSubmit} className="card rounded-3xl p-6 md:p-8">
-            <p className="mb-5 text-sm text-muted">
+            <p className="mb-5 text-sm leading-6 text-muted">
               Messages are delivered to{" "}
-              <a href={`mailto:${profile.email}`} className="text-violet">
+              <a href={`mailto:${profile.email}`} className="text-violet hover:underline">
                 {profile.email}
+              </a>
+              . You can also call{" "}
+              <a href={profile.phoneHref} className="text-violet hover:underline">
+                {profile.phoneDisplay}
               </a>
               .
             </p>
@@ -124,7 +128,7 @@ export function Contact() {
                 <input
                   required
                   name="name"
-                  className="mt-2 w-full rounded-2xl border border-line bg-transparent px-4 py-3 outline-none transition duration-500 focus:border-violet"
+                  className="mt-2 w-full rounded-2xl border border-line bg-transparent px-4 py-3 outline-none focus:border-violet"
                 />
               </label>
               <label className="text-sm">
@@ -133,7 +137,7 @@ export function Contact() {
                   required
                   type="email"
                   name="email"
-                  className="mt-2 w-full rounded-2xl border border-line bg-transparent px-4 py-3 outline-none transition duration-500 focus:border-violet"
+                  className="mt-2 w-full rounded-2xl border border-line bg-transparent px-4 py-3 outline-none focus:border-violet"
                 />
               </label>
             </div>
@@ -143,7 +147,7 @@ export function Contact() {
                 required
                 name="message"
                 rows={5}
-                className="mt-2 w-full rounded-2xl border border-line bg-transparent px-4 py-3 outline-none transition duration-500 focus:border-violet"
+                className="mt-2 w-full rounded-2xl border border-line bg-transparent px-4 py-3 outline-none focus:border-violet"
               />
             </label>
             <button

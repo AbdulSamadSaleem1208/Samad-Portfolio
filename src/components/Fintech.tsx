@@ -64,11 +64,11 @@ export function Fintech() {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {pillars.map((item, index) => (
           <Reveal key={item.title} delay={index * 0.05}>
-            <a href={item.href} className="card lift block h-full rounded-3xl p-6">
+            <a href={item.href} className="card lift group block h-full rounded-3xl p-6">
               <p className="text-[10px] font-semibold tracking-[0.18em] text-cyan uppercase">
                 FinTech 0{index + 1}
               </p>
-              <h3 className="mt-4 text-2xl font-semibold tracking-tight text-ink">{item.title}</h3>
+              <h3 className="mt-4 text-2xl font-semibold tracking-tight text-ink transition group-hover:text-violet">{item.title}</h3>
               <p className="mt-3 text-sm leading-6 text-muted">{item.body}</p>
             </a>
           </Reveal>
