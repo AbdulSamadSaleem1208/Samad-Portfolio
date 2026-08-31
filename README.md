@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Abdul Samad Saleem — Portfolio
 
-## Getting Started
+Personal brand site for **Abdul Samad Saleem**: business development, FinTech, and technology.
 
-First, run the development server:
+**Live positioning:** Business Development & Technology Professional building at the intersection of client growth, financial technology, and digital products.
+
+## Stack
+
+- Next.js 16 (App Router)
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- Framer Motion
+
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Resume
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The CV lives at `public/Abdul-Samad-Saleem-Resume.pdf` and is linked from **Download Resume**.
 
-## Learn More
+## GitHub connection
 
-To learn more about Next.js, take a look at the following resources:
+Featured repositories map to case-study pages on this site (`/work/[slug]`).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To make GitHub itself point here:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Deploy this project (Vercel is the intended host).
+2. Set your GitHub profile **Website** to the live URL.
+3. Copy `github-profile-README.md` into a repository named `AbdulSamadSaleem1208`.
+4. Optionally set each featured repo’s **Website / Homepage** field to `https://YOUR-DOMAIN/work/SLUG`.
+
+## Contact form
+
+Messages from the site go to **abdulsamadsaleem1208@gmail.com**.
+
+After the first test send, open that Gmail inbox (and Spam) and click FormSubmit’s confirmation link. After that, every new message arrives in Gmail.
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Create a free account at [vercel.com](https://vercel.com) and sign in with GitHub.
+2. Put this project on GitHub (new repo, then push):
+   ```bash
+   git add .
+   git commit -m "Launch portfolio site"
+   git branch -M main
+   git remote add origin https://github.com/AbdulSamadSaleem1208/YOUR-REPO-NAME.git
+   git push -u origin main
+   ```
+3. In Vercel: **Add New → Project → Import** that GitHub repo.
+4. Leave the defaults (Framework: Next.js, Build: `npm run build`, Output: default).
+5. Click **Deploy**. Wait until it finishes.
+6. Open the `*.vercel.app` URL Vercel gives you.
+7. Send one test message from Contact. Confirm the FormSubmit email in Gmail if this is the first send.
+8. Optional: in Vercel → Project → Settings → Domains, add a custom domain.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Later pushes to `main` redeploy automatically.
