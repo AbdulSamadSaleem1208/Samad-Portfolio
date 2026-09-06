@@ -23,7 +23,7 @@ export function Portrait() {
               fill
               priority
               sizes="320px"
-              className="object-cover object-[center_18%]"
+              className="object-cover object-[center_22%]"
             />
           </div>
         </div>
